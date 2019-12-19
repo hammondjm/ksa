@@ -1,0 +1,28 @@
+# Starter pipeline
+- task: CmdLine@2
+  inputs:
+    script: 'git clone https://github.com/hammondjm/ksa.git'
+    - task: CmdLine@2
+      inputs:
+        script: 'curl -LJO https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar'
+        - task: CmdLine@2
+          inputs:
+            script: 'java -jar wss-unified-agent.jar -noConfig true -wss.url https://app.whitesourcesoftware.com/agent -apiKey b9e6964c7b9f42299b77858299a49a5659e7b345f5974771b89cb155458a99f7 -project Microsoft_Event_Demo -product Microsoft_Event_Demo'
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
