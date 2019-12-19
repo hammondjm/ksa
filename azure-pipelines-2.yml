@@ -26,7 +26,8 @@ steps:
 
 - task: Maven@3
   inputs:
-    mavenPomFile: 'pom.xml'
+    mavenPomFile: 'ksa-web-core/pom.xml'
+    options: '-Dmaven.test.skip=true'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
