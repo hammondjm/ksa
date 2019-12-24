@@ -27,6 +27,7 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
+    goals: 'clean install'
     options: '-DskipTests=true'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
