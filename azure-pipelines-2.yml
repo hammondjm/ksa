@@ -38,5 +38,5 @@ steps:
 - script: 'curl -LJO https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar'
   displayName: 'Download the latest Unified Agent'
  
-- script: 'java -jar wss-unified-agent.jar -noConfig true -wss.url https://app.whitesourcesoftware.com/agent -apiKey b9e6964c7b9f42299b77858299a49a5659e7b345f5974771b89cb155458a99f7 -project KSA-EUA -product KSA-EUA'
+- script: 'java -jar wss-unified-agent.jar -product KSA -project KSA-EUA -appPath ./ksa-web-core/target/ksa-web-core-3.9.2.jar -d ./ksa-web-core'
   displayName: 'Run Unified Agent Scan'
