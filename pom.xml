@@ -9,11 +9,11 @@
 
 	<name>ksa-root</name>
 	<description>杭州凯思爱物流管理系统 - 根模型</description>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.7</java.version>
-    
+		<java.version>1.7</java.version>
+
 		<slf4j.version>1.6.1</slf4j.version>
 		<log4j.version>1.2.16</log4j.version>
 		<spring.version>3.1.1.RELEASE</spring.version>
@@ -25,7 +25,7 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
-		
+
 		<!-- test -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -33,7 +33,7 @@
 			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -44,16 +44,16 @@
 			<artifactId>log4j</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.9.3</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- jackson-databind -->
-			<dependency>
-                		<groupId>com.fasterxml.jackson.core</groupId>
-                		<artifactId>jackson-databind</artifactId>
-              			<version>2.9.9.3</version>
-            		</dependency>
 			<!-- log -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -70,7 +70,7 @@
 				<artifactId>log4j</artifactId>
 				<version>${log4j.version}</version>
 			</dependency>
-			
+
 			<!-- servlet -->
 			<dependency>
 				<groupId>org.apache.geronimo.specs</groupId>
@@ -82,7 +82,7 @@
 				<artifactId>geronimo-jsp_2.1_spec</artifactId>
 				<version>1.0.1</version>
 			</dependency>	
-			
+
 			<!-- test -->
 			<dependency>
 				<groupId>org.mockito</groupId>
@@ -90,7 +90,7 @@
 				<version>1.9.0</version>
 				<scope>test</scope>
 			</dependency>
-			
+
 			<!-- jdbc -->
 			<dependency>
 				<groupId>com.h2database</groupId>
@@ -161,12 +161,12 @@
 				<artifactId>commons-dbcp</artifactId>
 				<version>1.4</version>
 			</dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>1.0.20</version>
-            </dependency>
-	   </dependencies>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>1.0.20</version>
+			</dependency>
+		</dependencies>
 	</dependencyManagement>
 
 	<build>
@@ -176,9 +176,12 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.6</source>  <!-- 源代码编写时候的版本 -->
-					<target>1.6</target>  <!-- 编译运行的目标JVM的版本，一般都设置1.6 -->
-					<encoding>UTF-8</encoding> <!-- 源文件的格式 -->
+					<source>1.6</source>
+					<!-- 源代码编写时候的版本 -->
+					<target>1.6</target>
+					<!-- 编译运行的目标JVM的版本，一般都设置1.6 -->
+					<encoding>UTF-8</encoding>
+					<!-- 源文件的格式 -->
 				</configuration>
 			</plugin>
 			<plugin>
@@ -207,8 +210,10 @@
 					<!-- <parallel>methods</parallel>
 					<threadCount>10</threadCount>
 					<useUnlimitedThreads>true</useUnlimitedThreads> -->
-					<argLine>-Dfile.encoding=UTF-8</argLine>	<!-- 解决测试输出乱码的问题 -->
-					<!-- <skipTests>true</skipTests> -->	<!-- 调过测试  -->
+					<argLine>-Dfile.encoding=UTF-8</argLine>
+					<!-- 解决测试输出乱码的问题 -->
+					<!-- <skipTests>true</skipTests> -->
+					<!-- 调过测试  -->
 				</configuration>
 				<dependencies>
 					<dependency>
@@ -242,18 +247,19 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	
+
 	<modules>
-		<module>ksa-debug</module>	<!-- 正式环境移除 -->
+		<module>ksa-debug</module>
+		<!-- 正式环境移除 -->
 		<module>ksa-core</module>
-		
+
 		<!-- dao 层 -->
 		<module>ksa-dao-context</module>
 		<module>ksa-dao-root</module>
-		
+
 		<!-- service 层 -->
 		<module>ksa-service-root</module>
-		
+
 		<!-- web 层 -->
 		<module>ksa-web-core</module>
 		<module>ksa-web-root</module>
